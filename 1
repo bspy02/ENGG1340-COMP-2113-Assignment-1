@@ -1,0 +1,58 @@
+/*
+#include <iostream>
+#include <iomanip>
+#include <vector>
+
+using namespace std;
+
+float horner(vector<float> poly,  float x, int n) 
+{ 
+  float back = poly.back();
+	if(n == 0){return back;};
+  poly.pop_back();
+	return horner(poly,x,n-1)*x + back; 
+} 
+
+int main() 
+{ 
+  float x;
+  int m;
+  cin >> x >> m;
+
+  vector<float> poly;
+  for (int i=0; i<m+1; i++)
+  {
+    float input;    
+    cin >> input;    
+    poly.push_back(input);
+  }
+	cout << fixed << setprecision(6) << horner(poly, x, m); 
+	return 0; 
+} 
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+float horner(float poly[], int n, float x) 
+{ 
+	float result = poly[0]; 
+
+	for (int i=1; i<n; i++) 
+		result = result*x + poly[i]; 
+
+	return result; 
+} 
+
+int main() 
+{ 
+  float x;
+  int m;
+  cin >> x >> m;
+  float poly[m+1];
+  for (int i=0; i<m+1; i++)
+      cin >> poly[i]; 
+	cout << fixed << setprecision(6) << horner(poly, m+1, x); 
+	return 0; 
+} 
