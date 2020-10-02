@@ -15,14 +15,10 @@ char CaesarShift(char text, int shift)
 int main() 
 { 
   char type, text;
-  string result = "";
   int shift;
 
   cin >> type >> shift;
   if (type =='d'){shift = -shift;}
-
-	while (text != '!'){cin >> text; result +=  CaesarShift(text,shift);}
-	cout << result; 
-	
+	while (text != '!'){cin >> text;cout << CaesarShift(text,shift);}	
   return 0; 
 } 
