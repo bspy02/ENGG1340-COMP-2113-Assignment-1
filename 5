@@ -1,0 +1,49 @@
+#include <iostream> 
+#include <cctype>
+
+using namespace std; 
+double bigger(double a,double b){if(a>b){return a;} return b;}
+double smaller(double a,double b){if(a<b){return a;} return b;}
+
+void RectangleBB(double &xmin, double &xmax, double &ymin, double &ymax)
+{
+    double x,y,h,w; cin >> x >> y >> h >> w;
+    xmax = bigger(x+w/2,xmax);
+    ymax = bigger(y+h/2,ymax);
+    xmin = smaller(x-w/2,xmin);
+    ymin = smaller(y-h/2,ymin);
+}
+void CircleBB(double &xmin, double &xmax, double &ymin, double &ymax)
+{
+    double x,y,r; cin >> x >> y >> r;
+    xmax = bigger(x+r,xmax);
+    ymax = bigger(y+r,ymax);
+    xmin = smaller(x-r,xmin);
+    ymin = smaller(y-r,ymin);
+}
+void PointSetBB(double &xmin, double &xmax, double &ymin, double &ymax)
+{
+    double n,x,y;cin >> n;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> x >> y;
+        xmax = bigger(x,xmax);
+        ymax = bigger(y,ymax);
+        xmin = smaller(x,xmin);
+        ymin = smaller(y,ymin);
+    }
+}
+int main()
+{
+    char type;
+    double xmin = 0, xmax =0, ymin = 0, ymax =  0;
+    while(type != '#'){
+        cin >> type;
+        if(type == 'R')     {RectangleBB(xmin, xmax, ymin, ymax);}
+        else if(type == 'C'){CircleBB(xmin, xmax, ymin, ymax);}
+        else if(type == 'P'){PointSetBB(xmin, xmax, ymin, ymax);}
+        else if(type == '#') break;
+    }
+    cout<< (xmin + xmax)/2 <<' '<< (ymin + ymax)/2<<' '<< xmax - xmin<<' ' << ymax - ymin <<endl;
+
+}
