@@ -16,7 +16,6 @@ int main()
 { 
   char type, text;
   int shift;
-
   cin >> type >> shift;
   if (type =='d'){shift = -shift;}
 	while (text != '!'){cin >> text;cout << CaesarShift(text,shift);}	
