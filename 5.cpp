@@ -7,14 +7,18 @@ double smaller(double a,double b, int time){if(time == 0) return a;if(a<b){retur
 void RectangleBB(double &xmin, double &xmax, double &ymin, double &ymax,int time)
 {
     double x,y,h,w; cin >> x >> y >> w >> h;
-    xmax = bigger (x+w/2,xmax, time); ymax = bigger (y+h/2,ymax, time);
-    xmin = smaller(x-w/2,xmin, time); ymin = smaller(y-h/2,ymin, time);
+    xmax = bigger (x+w/2,xmax, time); 
+    ymax = bigger (y+h/2,ymax, time);
+    xmin = smaller(x-w/2,xmin, time); 
+    ymin = smaller(y-h/2,ymin, time);
 }
 void CircleBB(double &xmin, double &xmax, double &ymin, double &ymax,int time)
 {
     double x,y,r; cin >> x >> y >> r;
-    xmax = bigger (x+r,xmax, time); ymax = bigger (y+r,ymax, time);
-    xmin = smaller(x-r,xmin, time); ymin = smaller(y-r,ymin, time);
+    xmax = bigger (x+r,xmax, time); 
+    ymax = bigger (y+r,ymax, time);
+    xmin = smaller(x-r,xmin, time); 
+    ymin = smaller(y-r,ymin, time);
 }
 void PointSetBB(double &xmin, double &xmax, double &ymin, double &ymax,int &time)
 {
@@ -22,8 +26,10 @@ void PointSetBB(double &xmin, double &xmax, double &ymin, double &ymax,int &time
     for(int i = 0; i < n; i++)
     {
         cin >> x >> y;
-        xmax = bigger (x,xmax, time); ymax = bigger (y,ymax, time);
-        xmin = smaller(x,xmin, time); ymin = smaller(y,ymin, time);
+        xmax = bigger (x,xmax, time); 
+        ymax = bigger (y,ymax, time);
+        xmin = smaller(x,xmin, time); 
+        ymin = smaller(y,ymin, time);
         time += 1;
     }
 }
